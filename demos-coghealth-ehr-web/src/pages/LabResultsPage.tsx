@@ -147,6 +147,9 @@ export default function LabResultsPage() {
     return true;
   });
 
+  const displayedResults = filteredPanels.flatMap(p => p.results);
+  const displayedAbnormalCount = displayedResults.filter(r => r.status === 'abnormal' || r.status === 'critical').length;
+
   const criticalCount = labPanels.reduce((acc, p) => acc + p.results.filter(r => r.status === 'critical').length, 0);
   const abnormalCount = labPanels.reduce((acc, p) => acc + p.results.filter(r => r.status === 'abnormal').length, 0);
 
@@ -220,6 +223,20 @@ export default function LabResultsPage() {
               {abnormalCount} Abnormal
             </span>
           </div>
+        </div>
+
+        <div className="flex items-center space-x-2 px-2 py-1 text-[10px] text-gray-600 bg-[#f8f8f8] border-x border-t border-gray-400">
+          <FlaskConical className="w-3 h-3 text-blue-600" />
+          <span>{displayedResults.length} result(s) displayed</span>
+          {displayedAbnormalCount > 0 && (
+            <>
+              <span className="text-gray-400">|</span>
+              <span className="flex items-center space-x-0.5 text-yellow-700">
+                <AlertTriangle className="w-3 h-3" />
+                <span>{displayedAbnormalCount} flagged</span>
+              </span>
+            </>
+          )}
         </div>
 
         <div className="flex-1 overflow-auto bg-white border border-gray-400">
