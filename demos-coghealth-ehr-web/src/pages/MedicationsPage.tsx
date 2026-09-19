@@ -244,6 +244,7 @@ export default function MedicationsPage() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
+  const [activeOnly, setActiveOnly] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<MedicationOrderExtended | null>(defaultMedicationOrders[5]);
   const [expandedPatients, setExpandedPatients] = useState<Set<string>>(new Set(['MRN001234']));
   const [viewMode, setViewMode] = useState<ViewMode>('all');
@@ -273,7 +274,8 @@ export default function MedicationsPage() {
       (filterStatus === 'discontinued' && (order.status === 'DISCONTINUED' || order.status === 'COMPLETED')) ||
       (filterStatus === 'controlled' && order.controlled);
     
-    return matchesSearch && matchesFilter;
+    const matchesActiveOnly = !activeOnly || order.status === 'ACTIVE';
+    return matchesSearch && matchesFilter && matchesActiveOnly;
   });
 
   const ordersByPatient = filteredOrders.reduce((acc, order) => {
@@ -355,6 +357,14 @@ export default function MedicationsPage() {
           <span>w/Alerts: <strong>{stats.withAlerts}</strong></span>
         </div>
         <div className="flex items-center space-x-1">
+          <button
+            onClick={() => setActiveOnly(prev => !prev)}
+            title="Show only active medications"
+            className={`ehr-tab flex items-center ${activeOnly ? 'active' : ''}`}
+          >
+            <CheckCircle2 className="w-3 h-3 mr-1" /> Active Only
+          </button>
+          <span className="text-gray-400 mx-1">|</span>
           {[
             { key: 'all', label: 'All' },
             { key: 'active', label: 'Active' },
