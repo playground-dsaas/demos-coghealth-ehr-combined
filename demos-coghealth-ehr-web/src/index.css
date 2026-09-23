@@ -43,11 +43,10 @@
   --ehr-badge-info-text: #004085;
 }
 
-/* Dark mode remaps the neutral palette, so the Tailwind gray/white utilities
-   used across the app resolve to dark equivalents. */
+/* Dark mode remaps the neutral palette, so the Tailwind gray utilities used
+   across the app resolve to dark equivalents. `white` stays white: it is the
+   text color on the blue EHR chrome. */
 .dark {
-  --color-white: #1e2126;
-  --color-black: #f2f5f8;
   --color-gray-50: #191c20;
   --color-gray-100: #23262b;
   --color-gray-200: #2b2f35;
@@ -82,6 +81,46 @@
   --ehr-badge-info-bg: #17293d;
   --ehr-badge-info-border: #3d7fbf;
   --ehr-badge-info-text: #b3d4f5;
+
+  /* Tinted alert surfaces (50/100) become dark, and the matching dark text
+     shades (600-900) become light. Mid shades stay put: they are accents on
+     the blue chrome, which keeps its light-on-dark contrast in both themes. */
+  --color-red-50: #2a1416;
+  --color-red-100: #3a1c1c;
+  --color-red-200: #4a2323;
+  --color-red-300: #6b3333;
+  --color-red-500: #ef8a8a;
+  --color-red-600: #ff9c9c;
+  --color-red-700: #ffb3b3;
+  --color-red-800: #ffc4c4;
+  --color-red-900: #ffd6d6;
+  --color-orange-500: #f0a868;
+  --color-orange-600: #ffb87a;
+  --color-orange-800: #ffd0a3;
+  --color-amber-600: #ffcf82;
+  --color-amber-700: #ffdf99;
+  --color-yellow-100: #3a3116;
+  --color-yellow-300: #6b5a2a;
+  --color-yellow-700: #ffdf99;
+  --color-yellow-800: #ffe9b8;
+  --color-green-100: #16301d;
+  --color-green-300: #2c5b37;
+  --color-green-600: #8fd6a4;
+  --color-green-700: #a8e0b8;
+  --color-green-800: #c0ebcc;
+  --color-blue-50: #17293d;
+  --color-blue-100: #1d3550;
+  --color-blue-600: #8fbef0;
+  --color-blue-800: #b3d4f5;
+  --color-purple-500: #b89ae0;
+  --color-purple-600: #c4a9e8;
+  --color-purple-800: #d9c6f2;
+}
+
+/* `white` is still the default page/panel surface, so the background utility
+   is remapped on its own. */
+.dark .bg-white {
+  background-color: var(--ehr-panel-bg);
 }
 
 body {
