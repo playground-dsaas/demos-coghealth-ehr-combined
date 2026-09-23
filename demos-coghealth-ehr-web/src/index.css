@@ -109,7 +109,6 @@
   --color-green-700: #a8e0b8;
   --color-green-800: #c0ebcc;
   --color-blue-50: #17293d;
-  --color-blue-100: #1d3550;
   --color-blue-600: #8fbef0;
   --color-blue-800: #b3d4f5;
   --color-purple-500: #b89ae0;
@@ -117,10 +116,15 @@
   --color-purple-800: #d9c6f2;
 }
 
-/* `white` is still the default page/panel surface, so the background utility
-   is remapped on its own. */
+/* `white` and `blue-100` are still used as text on the blue chrome, so only
+   their background utilities are remapped. */
 .dark .bg-white {
   background-color: var(--ehr-panel-bg);
+}
+
+.dark .bg-blue-100,
+.dark .hover\:bg-blue-100:hover {
+  background-color: #1d3550;
 }
 
 body {
