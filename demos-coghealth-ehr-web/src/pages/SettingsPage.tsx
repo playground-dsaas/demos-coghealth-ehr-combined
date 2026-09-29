@@ -7,13 +7,16 @@ import {
   Building2,
   Key,
   Monitor,
+  Moon,
   Mail,
   Smartphone,
   Globe,
   Save,
-  Check
+  Check,
+  Sun
 } from 'lucide-react';
 import { AlertDialog } from '../components/ui/Modal';
+import { SETTINGS_STORAGE_KEY, useTheme, type ThemePreference } from '../theme';
 
 type SettingsTab = 'profile' | 'notifications' | 'security' | 'appearance' | 'practice';
 
@@ -26,8 +29,6 @@ interface UserProfile {
   specialty: string;
   title: string;
 }
-
-const STORAGE_KEY = 'coghealth_settings';
 
 const defaultProfile: UserProfile = {
   firstName: 'Sarah',
@@ -55,6 +56,7 @@ const defaultAppearance = {
 };
 
 export default function SettingsPage() {
+  const { theme, setTheme } = useTheme();
   const [activeTab, setActiveTab] = useState<SettingsTab>('profile');
   const [saved, setSaved] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['channels', 'alerts', 'security', 'hours']));
@@ -76,7 +78,7 @@ export default function SettingsPage() {
 
   const [initialized, setInitialized] = useState(false);
   if (!initialized) {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(SETTINGS_STORAGE_KEY);
     if (stored) {
       try {
         const data = JSON.parse(stored);
@@ -99,13 +101,17 @@ export default function SettingsPage() {
   ];
 
   const handleSave = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ profile, notifications, appearance }));
+    localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify({
+      profile,
+      notifications,
+      appearance: { ...appearance, theme },
+    }));
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
 
   return (
-    <div className="h-full flex flex-col" style={{ background: '#d4d0c8' }}>
+    <div className="h-full flex flex-col" style={{ background: 'var(--ehr-desktop)' }}>
       {/* Header */}
       <div className="ehr-header flex items-center justify-between">
         <span>System Settings</span>
@@ -121,7 +127,7 @@ export default function SettingsPage() {
       {/* Main Content */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left Navigation */}
-        <div className="w-48 overflow-auto p-2 space-y-1" style={{ background: '#ece9d8' }}>
+        <div className="w-48 overflow-auto p-2 space-y-1" style={{ background: 'var(--ehr-chrome)' }}>
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
@@ -131,7 +137,7 @@ export default function SettingsPage() {
                 className={`w-full flex items-center px-2 py-1.5 text-[11px] ${
                   activeTab === tab.id
                     ? 'bg-white border border-gray-400 font-semibold'
-                    : 'hover:bg-white/50'
+                    : 'hover:bg-white/50 dark:hover:bg-[#353a42]'
                 }`}
               >
                 <Icon className="w-3.5 h-3.5 mr-2" />
@@ -385,18 +391,22 @@ export default function SettingsPage() {
               <fieldset className="ehr-fieldset">
                 <legend>Theme</legend>
                 <div className="grid grid-cols-3 gap-2">
-                  {['light', 'dark', 'system'].map((theme) => (
+                  {([
+                    { name: 'light', Icon: Sun },
+                    { name: 'dark', Icon: Moon },
+                    { name: 'system', Icon: Monitor },
+                  ] satisfies { name: ThemePreference; Icon: typeof Sun }[]).map(({ name, Icon }) => (
                     <button
-                      key={theme}
-                      onClick={() => setAppearance({ ...appearance, theme })}
+                      key={name}
+                      onClick={() => setTheme(name)}
                       className={`p-2 border text-center text-[11px] ${
-                        appearance.theme === theme
+                        theme === name
                           ? 'border-gray-600 bg-white'
                           : 'border-gray-400 bg-gray-100 hover:bg-gray-50'
                       }`}
                     >
-                      <Monitor className="w-4 h-4 mx-auto mb-1 text-gray-600" />
-                      <span className="capitalize">{theme}</span>
+                      <Icon className="w-4 h-4 mx-auto mb-1 text-gray-600" />
+                      <span className="capitalize">{name}</span>
                     </button>
                   ))}
                 </div>
