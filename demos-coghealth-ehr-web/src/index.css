@@ -189,6 +189,10 @@
   background-color: var(--ehr-surface);
 }
 
+.dark .text-gray-400 {
+  color: #858c96;
+}
+
 body {
   font-size: 11px;
   background-color: var(--ehr-desktop);
