@@ -30,7 +30,7 @@ import LabResultsPage from './pages/LabResultsPage';
 import VitalsPage from './pages/VitalsPage';
 import { AlertDialog, ConfirmDialog } from './components/ui/Modal';
 import { logLogout } from './services/auditService';
-import { useThemeStore, useThemeEffect, resolveTheme } from './stores/themeStore';
+import { useThemeStore, useThemeEffect, useResolvedTheme } from './stores/themeStore';
 
 const SESSION_TIMEOUT_MS = 15 * 60 * 1000;
 const SESSION_WARNING_MS = 2 * 60 * 1000;
@@ -58,9 +58,8 @@ function Navigation({ onSessionWarning, onSessionExpired, onLogout }: Navigation
   const [searchResults, setSearchResults] = useState<typeof defaultPatientSearch>([]);
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
   const [sessionTime, setSessionTime] = useState(SESSION_TIMEOUT_MS);
-  const theme = useThemeStore((s) => s.theme);
   const setTheme = useThemeStore((s) => s.setTheme);
-  const isDark = resolveTheme(theme) === 'dark';
+  const isDark = useResolvedTheme() === 'dark';
 
   useEffect(() => {
     const interval = setInterval(() => {
