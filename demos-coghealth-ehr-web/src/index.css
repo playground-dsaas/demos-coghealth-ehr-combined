@@ -176,7 +176,6 @@
   --color-yellow-700: #e6c35c;
   --color-yellow-800: #edd07a;
   --color-blue-50: #1d2a3a;
-  --color-blue-100: #22364d;
   --color-blue-500: #5aa6ee;
   --color-blue-600: #6fb0f0;
   --color-blue-800: #9cc8f5;
@@ -211,6 +210,10 @@
 }
 .dark .border-white {
   border-color: var(--ehr-border);
+}
+.dark .bg-blue-100,
+.dark .hover\:bg-blue-100:hover {
+  background-color: #22364d;
 }
 .dark .bg-gray-600 {
   background-color: #5a5a5a;
