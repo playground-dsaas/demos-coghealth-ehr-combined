@@ -13,13 +13,216 @@
   --color-primary-800: #0a3a5a;
   --color-primary-900: #051d2d;
   --color-primary-950: #020e16;
-  
+
   --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --ehr-bg: #d4d0c8;
+  --ehr-sidebar: #ece9d8;
+  --ehr-panel: #f5f5f5;
+  --ehr-surface: #ffffff;
+  --ehr-surface-alt: #f8f8f8;
+  --ehr-fieldset: #fafafa;
+  --ehr-text: #000000;
+  --ehr-text-secondary: #333333;
+  --ehr-text-muted: #666666;
+  --ehr-border: #999999;
+  --ehr-border-light: #cccccc;
+  --ehr-button-border: #888888;
+  --ehr-bevel-hi: #ffffff;
+  --ehr-bevel-shadow: #999999;
+  --ehr-inset-shadow: rgba(0,0,0,0.15);
+  --ehr-header-from: #6699cc;
+  --ehr-header-to: #336699;
+  --ehr-header-border: #1a4080;
+  --ehr-subheader-from: #e8e8e8;
+  --ehr-subheader-to: #d0d0d0;
+  --ehr-toolbar-from: #f5f5f5;
+  --ehr-toolbar-to: #e5e5e5;
+  --ehr-button-from: #f8f8f8;
+  --ehr-button-to: #e0e0e0;
+  --ehr-button-hover-from: #ffffff;
+  --ehr-button-hover-to: #e8e8e8;
+  --ehr-primary-from: #4a90d9;
+  --ehr-primary-to: #2a5db0;
+  --ehr-primary-hover-from: #5aa0e9;
+  --ehr-primary-hover-to: #3a6dc0;
+  --ehr-primary-border: #1a4080;
+  --ehr-input-bg: #ffffff;
+  --ehr-input-border: #7f9db9;
+  --ehr-input-focus: #4a90d9;
+  --ehr-hover: #e0e8f0;
+  --ehr-grid-hover: #d0e0f0;
+  --ehr-row-alt: #f0f4f8;
+  --ehr-selected: #316ac5;
+  --ehr-statusbar: #ece9d8;
+  --ehr-splitter: #d4d0c8;
+  --ehr-splitter-hover: #b0b0b0;
+  --ehr-th-from: #f8f8f8;
+  --ehr-th-to: #e8e8e8;
+  --ehr-gridhead-from: #f0f0f0;
+  --ehr-gridhead-to: #e0e0e0;
+  --ehr-listhead-hover-from: #ffffff;
+  --ehr-listhead-hover-to: #f0f0f0;
+  --ehr-banner-from: #4a6ea5;
+  --ehr-banner-to: #2d4a7c;
+  --ehr-critical-bg: #ffcccc;
+  --ehr-critical-fg: #990000;
+  --ehr-critical-border: #cc0000;
+  --ehr-warning-bg: #fff3cd;
+  --ehr-warning-fg: #664d00;
+  --ehr-warning-border: #cc9900;
+  --ehr-info-bg: #cce5ff;
+  --ehr-info-fg: #004085;
+  --ehr-info-border: #0066cc;
+  --ehr-success-bg: #d4edda;
+  --ehr-success-fg: #155724;
+  --ehr-success-border: #28a745;
+  --ehr-default-bg: #e8e8e8;
+  --ehr-default-fg: #333333;
+  --ehr-default-border: #999999;
+  --ehr-error-bg: #f8d7da;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --ehr-bg: #1b1d21;
+  --ehr-sidebar: #202328;
+  --ehr-panel: #24272c;
+  --ehr-surface: #2b2f35;
+  --ehr-surface-alt: #262a30;
+  --ehr-fieldset: #262a2f;
+  --ehr-text: #d8dde3;
+  --ehr-text-secondary: #d8dde3;
+  --ehr-text-muted: #9aa3ad;
+  --ehr-border: #4a4f57;
+  --ehr-border-light: #3d4248;
+  --ehr-button-border: #5d646c;
+  --ehr-bevel-hi: rgba(255, 255, 255, 0.06);
+  --ehr-bevel-shadow: #111111;
+  --ehr-inset-shadow: rgba(255,255,255,0.06);
+  --ehr-header-from: #2b4a6f;
+  --ehr-header-to: #1a3050;
+  --ehr-header-border: #0f2238;
+  --ehr-subheader-from: #34383e;
+  --ehr-subheader-to: #2b2f34;
+  --ehr-toolbar-from: #2e3238;
+  --ehr-toolbar-to: #262a2f;
+  --ehr-button-from: #3a3f46;
+  --ehr-button-to: #2e3238;
+  --ehr-button-hover-from: #444a52;
+  --ehr-button-hover-to: #363b41;
+  --ehr-primary-from: #3a78c2;
+  --ehr-primary-to: #24549a;
+  --ehr-primary-hover-from: #4a88d2;
+  --ehr-primary-hover-to: #3464aa;
+  --ehr-primary-border: #122a4a;
+  --ehr-input-bg: #1e2125;
+  --ehr-input-border: #52606e;
+  --ehr-input-focus: #4a90d9;
+  --ehr-hover: #2f3c4d;
+  --ehr-grid-hover: #2f3c4d;
+  --ehr-row-alt: #262a30;
+  --ehr-selected: #316ac5;
+  --ehr-statusbar: #202328;
+  --ehr-splitter: #2e3238;
+  --ehr-splitter-hover: #444a52;
+  --ehr-th-from: #34383e;
+  --ehr-th-to: #2b2f34;
+  --ehr-gridhead-from: #34383e;
+  --ehr-gridhead-to: #2b2f34;
+  --ehr-listhead-hover-from: #444a52;
+  --ehr-listhead-hover-to: #363b41;
+  --ehr-banner-from: #2a3f5f;
+  --ehr-banner-to: #1a2a44;
+  --ehr-critical-bg: #4a1f22;
+  --ehr-critical-fg: #ffb3b3;
+  --ehr-critical-border: #b33a3a;
+  --ehr-warning-bg: #43391a;
+  --ehr-warning-fg: #f5d98a;
+  --ehr-warning-border: #9a7a1f;
+  --ehr-info-bg: #1d3350;
+  --ehr-info-fg: #a9d1ff;
+  --ehr-info-border: #3b78c2;
+  --ehr-success-bg: #1e3a28;
+  --ehr-success-fg: #a8e2bb;
+  --ehr-success-border: #2f8a4c;
+  --ehr-default-bg: #33373d;
+  --ehr-default-fg: #d8dde3;
+  --ehr-default-border: #5d646c;
+  --ehr-error-bg: #4a1f22;
+
+  /* Tailwind palette remap for dark mode */
+  --color-gray-50: #25282d;
+  --color-gray-100: #2a2e33;
+  --color-gray-200: #33373d;
+  --color-gray-300: #454a52;
+  --color-gray-400: #7c848e;
+  --color-gray-500: #9aa2ab;
+  --color-gray-600: #b0b7bf;
+  --color-gray-700: #c5cbd2;
+  --color-gray-800: #dde1e6;
+  --color-gray-900: #eef0f2;
+  --color-red-50: #3a1d1f;
+  --color-red-100: #4a2224;
+  --color-red-500: #f06a6a;
+  --color-red-600: #f27a7a;
+  --color-red-700: #f59191;
+  --color-red-800: #f8a8a8;
+  --color-red-900: #fbc0c0;
+  --color-yellow-100: #3d3419;
+  --color-yellow-700: #e6c35c;
+  --color-yellow-800: #edd07a;
+  --color-blue-50: #1d2a3a;
+  --color-blue-100: #22364d;
+  --color-blue-500: #5aa6ee;
+  --color-blue-600: #6fb0f0;
+  --color-blue-800: #9cc8f5;
+  --color-green-50: #1c3324;
+  --color-green-100: #1c3324;
+  --color-green-600: #5cc98a;
+  --color-green-700: #74d39b;
+  --color-green-800: #8fdcaf;
+  --color-amber-50: #3d2e19;
+  --color-amber-100: #3d2e19;
+  --color-amber-600: #f0b44c;
+  --color-amber-700: #f3c270;
+  --color-orange-50: #3d2e19;
+  --color-orange-100: #3d2e19;
+  --color-orange-500: #f0a44c;
+  --color-orange-600: #f3b270;
+  --color-orange-700: #f6c08c;
+  --color-orange-800: #f9cea8;
+  --color-purple-500: #b38ae0;
+  --color-purple-600: #c09ce6;
+  --color-purple-700: #cdaeec;
+  --color-purple-800: #dac0f2;
+}
+
+/* Dark-mode overrides for white utilities (unlayered so they beat layered utilities) */
+.dark .bg-white {
+  background-color: var(--ehr-surface);
+}
+.dark .hover\:bg-white:hover,
+.dark .hover\:bg-white\/50:hover {
+  background-color: var(--ehr-surface-alt);
+}
+.dark .border-white {
+  border-color: var(--ehr-border);
+}
+.dark .bg-gray-600 {
+  background-color: #5a5a5a;
+}
+.dark .bg-gray-700 {
+  background-color: #565c64;
 }
 
 body {
   font-size: 11px;
-  background-color: #d4d0c8;
+  background-color: var(--ehr-bg);
+  color: var(--ehr-text);
 }
 
 input, select, textarea, button {
@@ -31,73 +234,75 @@ table {
 }
 
 th {
-  background: linear-gradient(to bottom, #f8f8f8 0%, #e8e8e8 100%);
-  border: 1px solid #999;
+  background: linear-gradient(to bottom, var(--ehr-th-from) 0%, var(--ehr-th-to) 100%);
+  border: 1px solid var(--ehr-border);
   font-weight: 600;
 }
 
 td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--ehr-border-light);
 }
 
 .ehr-panel {
-  background: #f5f5f5;
-  border: 1px solid #999;
-  box-shadow: inset 1px 1px 0 #fff, 1px 1px 2px rgba(0,0,0,0.1);
+  background: var(--ehr-panel);
+  border: 1px solid var(--ehr-border);
+  box-shadow: inset 1px 1px 0 var(--ehr-bevel-hi), 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .ehr-button {
-  background: linear-gradient(to bottom, #f8f8f8 0%, #e0e0e0 100%);
-  border: 1px solid #888;
+  background: linear-gradient(to bottom, var(--ehr-button-from) 0%, var(--ehr-button-to) 100%);
+  border: 1px solid var(--ehr-button-border);
   padding: 2px 8px;
   font-size: 11px;
   cursor: pointer;
-  box-shadow: 1px 1px 0 #fff inset, -1px -1px 0 #999 inset;
+  color: var(--ehr-text);
+  box-shadow: 1px 1px 0 var(--ehr-bevel-hi) inset, -1px -1px 0 var(--ehr-bevel-shadow) inset;
 }
 
 .ehr-button:hover {
-  background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
+  background: linear-gradient(to bottom, var(--ehr-button-hover-from) 0%, var(--ehr-button-hover-to) 100%);
 }
 
 .ehr-button:active {
-  background: linear-gradient(to bottom, #d8d8d8 0%, #e8e8e8 100%);
-  box-shadow: -1px -1px 0 #fff inset, 1px 1px 0 #999 inset;
+  background: linear-gradient(to bottom, var(--ehr-button-to) 0%, var(--ehr-button-hover-to) 100%);
+  box-shadow: -1px -1px 0 var(--ehr-bevel-hi) inset, 1px 1px 0 var(--ehr-bevel-shadow) inset;
 }
 
 .ehr-button-primary {
-  background: linear-gradient(to bottom, #4a90d9 0%, #2a5db0 100%);
-  border: 1px solid #1a4080;
+  background: linear-gradient(to bottom, var(--ehr-primary-from) 0%, var(--ehr-primary-to) 100%);
+  border: 1px solid var(--ehr-primary-border);
   color: white;
 }
 
 .ehr-button-primary:hover {
-  background: linear-gradient(to bottom, #5aa0e9 0%, #3a6dc0 100%);
+  background: linear-gradient(to bottom, var(--ehr-primary-hover-from) 0%, var(--ehr-primary-hover-to) 100%);
 }
 
 .ehr-input {
-  border: 1px solid #7f9db9;
+  border: 1px solid var(--ehr-input-border);
   padding: 2px 4px;
-  background: white;
+  background: var(--ehr-input-bg);
+  color: var(--ehr-text);
   font-size: 11px;
 }
 
 .ehr-input:focus {
   outline: none;
-  border-color: #4a90d9;
+  border-color: var(--ehr-input-focus);
   box-shadow: 0 0 2px rgba(74, 144, 217, 0.5);
 }
 
 .ehr-fieldset {
-  border: 1px solid #999;
+  border: 1px solid var(--ehr-border);
   padding: 8px;
   margin: 4px 0;
-  background: #fafafa;
+  background: var(--ehr-fieldset);
 }
 
 .ehr-fieldset legend {
   font-weight: 600;
   padding: 0 4px;
-  color: #333;
+  color: var(--ehr-text-secondary);
 }
 
 .ehr-checkbox {
@@ -105,24 +310,24 @@ td {
 }
 
 .ehr-label {
-  color: #333;
+  color: var(--ehr-text-secondary);
   font-size: 11px;
 }
 
 .ehr-header {
-  background: linear-gradient(to bottom, #6699cc 0%, #336699 100%);
+  background: linear-gradient(to bottom, var(--ehr-header-from) 0%, var(--ehr-header-to) 100%);
   color: white;
   padding: 4px 8px;
   font-weight: 600;
-  border-bottom: 1px solid #1a4080;
+  border-bottom: 1px solid var(--ehr-header-border);
 }
 
 .ehr-subheader {
-  background: linear-gradient(to bottom, #e8e8e8 0%, #d0d0d0 100%);
-  color: #333;
+  background: linear-gradient(to bottom, var(--ehr-subheader-from) 0%, var(--ehr-subheader-to) 100%);
+  color: var(--ehr-text-secondary);
   padding: 2px 6px;
   font-weight: 600;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--ehr-border);
   font-size: 10px;
 }
 
@@ -132,25 +337,25 @@ td {
 }
 
 .ehr-tree-item:hover {
-  background: #e0e8f0;
+  background: var(--ehr-hover);
 }
 
 .ehr-tree-item.selected {
-  background: #316ac5;
+  background: var(--ehr-selected);
   color: white;
 }
 
 .ehr-status-bar {
-  background: #ece9d8;
-  border-top: 1px solid #fff;
+  background: var(--ehr-statusbar);
+  border-top: 1px solid var(--ehr-bevel-hi);
   padding: 2px 8px;
   font-size: 10px;
-  color: #333;
+  color: var(--ehr-text-secondary);
 }
 
 .ehr-tab {
-  background: linear-gradient(to bottom, #f8f8f8 0%, #e0e0e0 100%);
-  border: 1px solid #888;
+  background: linear-gradient(to bottom, var(--ehr-button-from) 0%, var(--ehr-button-to) 100%);
+  border: 1px solid var(--ehr-button-border);
   border-bottom: none;
   padding: 3px 12px;
   margin-right: 2px;
@@ -159,53 +364,59 @@ td {
 }
 
 .ehr-tab.active {
-  background: #fff;
-  border-bottom: 1px solid #fff;
+  background: var(--ehr-surface);
+  border-bottom: 1px solid var(--ehr-surface);
   margin-bottom: -1px;
   position: relative;
   z-index: 1;
 }
 
 .ehr-tab-content {
-  border: 1px solid #888;
-  background: #fff;
+  border: 1px solid var(--ehr-button-border);
+  background: var(--ehr-surface);
   padding: 8px;
 }
 
 .ehr-grid-row:nth-child(even) {
-  background: #f0f4f8;
+  background: var(--ehr-row-alt);
 }
 
 .ehr-grid-row:hover {
-  background: #d0e0f0;
+  background: var(--ehr-grid-hover);
 }
 
 .ehr-grid-row.selected {
-  background: #316ac5;
+  background: var(--ehr-selected);
   color: white;
 }
 
 .ehr-alert-critical {
-  background: #ffcccc;
-  border: 1px solid #cc0000;
-  color: #990000;
+  background: var(--ehr-critical-bg);
+  border: 1px solid var(--ehr-critical-border);
+  color: var(--ehr-critical-fg);
 }
 
 .ehr-alert-warning {
-  background: #fff3cd;
-  border: 1px solid #cc9900;
-  color: #664d00;
+  background: var(--ehr-warning-bg);
+  border: 1px solid var(--ehr-warning-border);
+  color: var(--ehr-warning-fg);
 }
 
 .ehr-alert-info {
-  background: #cce5ff;
-  border: 1px solid #0066cc;
-  color: #004085;
+  background: var(--ehr-info-bg);
+  border: 1px solid var(--ehr-info-border);
+  color: var(--ehr-info-fg);
+}
+
+.ehr-alert-success {
+  background: var(--ehr-success-bg);
+  border: 1px solid var(--ehr-success-border);
+  color: var(--ehr-success-fg);
 }
 
 .ehr-toolbar {
-  background: linear-gradient(to bottom, #f5f5f5 0%, #e5e5e5 100%);
-  border-bottom: 1px solid #999;
+  background: linear-gradient(to bottom, var(--ehr-toolbar-from) 0%, var(--ehr-toolbar-to) 100%);
+  border-bottom: 1px solid var(--ehr-border);
   padding: 2px 4px;
 }
 
@@ -214,25 +425,26 @@ td {
   border: 1px solid transparent;
   padding: 2px 6px;
   cursor: pointer;
+  color: var(--ehr-text);
 }
 
 .ehr-toolbar-button:hover {
-  background: #e0e8f0;
-  border: 1px solid #999;
+  background: var(--ehr-hover);
+  border: 1px solid var(--ehr-border);
 }
 
 .ehr-toolbar-button-active {
-  background: linear-gradient(to bottom, #fff 0%, #e8e8e8 100%);
-  border: 1px solid #888;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15);
+  background: linear-gradient(to bottom, var(--ehr-button-hover-from) 0%, var(--ehr-button-hover-to) 100%);
+  border: 1px solid var(--ehr-button-border);
+  box-shadow: inset 1px 1px 2px var(--ehr-inset-shadow);
 }
 
 .ehr-splitter {
-  background: #d4d0c8;
+  background: var(--ehr-splitter);
   cursor: col-resize;
   width: 4px;
 }
 
 .ehr-splitter:hover {
-  background: #b0b0b0;
+  background: var(--ehr-splitter-hover);
 }
